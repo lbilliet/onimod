@@ -1,0 +1,10 @@
+package tutoUdemyFr;
+
+public class For {
+	
+	public static
+	
+	for (;;) {
+		System.out.println("Hello world");
+	}
+}

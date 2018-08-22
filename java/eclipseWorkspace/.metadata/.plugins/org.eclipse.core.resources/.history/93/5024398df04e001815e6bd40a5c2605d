@@ -1,0 +1,8 @@
+package classeEtObjet;
+
+public class HelloWorld {
+	public static void main(String[] args) {
+		Planete uranus = new Planete ();
+		uranus.nom=
+	}
+}

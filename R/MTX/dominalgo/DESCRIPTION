@@ -1,0 +1,11 @@
+Package: dominalgo
+Title: Algorithme de comparaison de matrices de CUI extraits d'un ensemble de posts
+Version: 0.0.0.9000
+Authors@R: person("Louis", "Billiet", email = "louis.bllt@gmail.com", role = c("aut", "cre"))
+Description:
+Données d'entrée = matrices de concepts de deux ensembles de posts générés via la brique de TAL du projet.
+Données de sortie = score de suspicion de mésusage associé à cet ensemble de posts.
+Depends: R (>= 3.4.4)
+License: Open source
+Encoding: UTF-8
+LazyData: true

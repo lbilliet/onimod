@@ -1,0 +1,21 @@
+package tutoUdemyFr;
+
+public class BreakContinue {
+
+	public static void main(String[] args) {
+
+		boolean jeContinue = true;
+		int nb = 0;
+		while (jeContinue) {
+			System.out.println("une jhsbdjkvzrg");
+			nb++;
+//			if (nb == 5) {
+//				continue;
+//			}
+			if (nb == 8) {
+				break;
+			}
+		}
+	}
+
+}

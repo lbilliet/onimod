@@ -1,0 +1,14 @@
+package tutoUdemyFr;
+
+public class BreakContinue {
+	
+	public static void main(String[] args) {
+		
+		boolean jeContinue = true
+				while (jeContinue) {
+					System.out.println("une iteration");
+					if 
+				}
+	}
+		
+}

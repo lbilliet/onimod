@@ -1,0 +1,58 @@
+PREFIX sioc:<http://rdfs.org/sioc/ns#>
+
+PREFIX foaf:<http://xmlns.com/foaf/0.1/>
+PREFIX dcterm:<http://purl.org/dc/terms/>
+prefix bds: <http://www.bigdata.com/rdf/search#>
+
+SELECT ?threadURL ?postURL ?cosine ?rank ?contentPost ?datePost ?age ?sexe ?threadTitle
+
+WHERE {
+
+  ?postURL a sioc:Post ;
+               dcterm:created ?datePost ; 
+
+     sioc:has_container ?threadURL .
+
+        ?threadURL  sioc:name ?threadTitle ;
+
+                sioc:has_parent ?urlThread .
+
+              
+
+    ?urlThread  sioc:name ?parentThread .
+
+  
+
+    ?postURL sioc:content ?contentPost ;
+
+             sioc:has_creator ?creatorPost .
+
+    
+
+    ?contentPost bds:search "MEDICAMENT" ;
+
+               #  bds:matchAllTerms "true" ;
+
+                 bds:relevance ?cosine ;
+
+                # bds:maxRank "1000" ;
+
+                # bds:rank ?rank .
+
+  OPTIONAL {    
+
+    ?postURL sioc:content ?contentPost ;
+
+             sioc:has_creator ?creatorPost .
+
+
+
+  	?creatorPost sioc:account_of [ foaf:gender ?sexe ;
+
+                                   foaf:birthday ?age  ] .
+  }
+}
+
+ORDER BY DESC (?rank)
+
+# LIMIT 1000

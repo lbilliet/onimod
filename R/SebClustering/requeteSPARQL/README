@@ -1,0 +1,11 @@
+Bruno a récupéré les posts sur la grossesse
+
+L'adresse du serveur : http://172.16.13.17:8889/bigdata/#query
+
+
+RequeteListeSujets : les sous-catégories de la catégorie grossesse sur doctissimo. En tout, il y a 109 sujets différents. 
+J'ai choisi de récupérer 2 sujets pour tester les techniques de clustering : 
+- IVG
+- Contraception
+
+Pour chacun, on a une requete SPARQL pour récupérer les posts et une commande shell qui execute avec Curl cette requete SPARQL sur le serveur. 

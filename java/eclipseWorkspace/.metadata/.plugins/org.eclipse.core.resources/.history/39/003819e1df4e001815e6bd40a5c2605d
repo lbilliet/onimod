@@ -1,0 +1,14 @@
+package tutoUdemyFr;
+
+public class For {
+
+	public static void main(String[] args) {
+		boolean jeContinue = true ;
+		for ( ; jeContinue; ) {
+			System.out.println("Hello world");
+			jeContinue=!jeContinue;
+		}
+
+	}
+
+}

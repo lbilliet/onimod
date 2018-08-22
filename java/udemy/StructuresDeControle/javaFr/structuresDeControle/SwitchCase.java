@@ -1,0 +1,53 @@
+package structuresDeControle;
+
+public class SwitchCase {
+	public static void main(String... args) {
+
+		int nbPlanetes = 8;
+
+		switch (nbPlanetes) {
+		case 8:
+			System.out.println("Aux dernières nouvelles, le nombre total de planètes dans le système solaire est de : " + nbPlanetes);
+			break;
+		case 9:
+			System.out.println("Il y a quelques années cependant, elles étaient au nombre de : " + nbPlanetes);
+			break;
+		case 10:
+			System.out.println("Au cours de l'ère moderne, le nombre de planètes n'a jamais été officiellement de : " + nbPlanetes);
+			break;
+
+		}
+
+		nbPlanetes++;
+
+		switch (nbPlanetes) {
+		case 8:
+			System.out.println("Aux dernières nouvelles, le nombre total de planètes dans le système solaire est de : " + nbPlanetes);
+			break;
+		case 9:
+			System.out.println("Il y a quelques années cependant, elles étaient au nombre de : " + nbPlanetes);
+			break;
+		case 10:
+			System.out.println("Au cours de l'ère moderne, le nombre de planètes n'a jamais été officiellement de : " + nbPlanetes);
+			break;
+
+		}
+
+		nbPlanetes++;
+
+		switch (nbPlanetes) {
+		case 8:
+			System.out.println("Aux dernières nouvelles, le nombre total de planètes dans le système solaire est de : " + nbPlanetes);
+			break;
+		case 9:
+			System.out.println("Il y a quelques années cependant, elles étaient au nombre de : " + nbPlanetes);
+			break;
+		case 10:
+			System.out.println("Au cours de l'ère moderne, le nombre de planètes n'a jamais été officiellement de : " + nbPlanetes);
+			break;
+
+		}
+
+	}
+
+}

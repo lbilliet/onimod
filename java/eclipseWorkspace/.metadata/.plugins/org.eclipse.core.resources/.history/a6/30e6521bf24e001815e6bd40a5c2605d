@@ -1,0 +1,12 @@
+package classeEtObjet;
+
+public class Planete {
+
+	public static void main(String[] args) {
+		String nom="Nom de la planète";
+		String matiere ="Matière de la planète";
+		long diametre;
+
+	}
+
+}

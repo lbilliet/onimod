@@ -1,0 +1,12 @@
+package tutoUdemyFr;
+
+public class While {
+
+	public static void main(String[] args) {
+		int nbPlanetes =8;
+		while (nbPlanetes<11) {
+			
+		}
+	}
+
+}

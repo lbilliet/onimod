@@ -1,0 +1,2 @@
+System.out.println(neptune.nom + " a effectué " + neptune.revolution(-3542) + " tours autour de son étoile.");
+		System.out.println(mars.nom + " a effectué " + mars.rotation(-684) + " tours sur elle-même");

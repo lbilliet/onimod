@@ -1,0 +1,103 @@
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
+@prefix dcterm: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix hint: <http://www.bigdata.com/queryHints#> .
+@prefix bd: <http://www.bigdata.com/rdf#> .
+@prefix bds: <http://www.bigdata.com/rdf/search#> .
+
+<http://forum.doctissimo.fr/grossesse-bebe/ivg/perdue-enceinte-bb5-sujet_164020_1.htm#post_0> a sioc:Post ;
+	dcterm:created "2015-05-31"^^xsd:date ;
+	sioc:has_container <http://forum.doctissimo.fr/grossesse-bebe/ivg/perdue-enceinte-bb5-sujet_164020_1.htm> ;
+	sioc:content "J'ai fais un test hier soir et il est positif. Pareil ce matin. J'avais un retard de 2 jours mais je me doutais bien avant de faire ces tests que j'étais enceinte... J'aurai bientôt 30 ans et je suis déjà maman de 4 enfants. Ma petite dernière aura 3 ans cet été. Ce bébé n'était pas attendu... il n'a fallu qu'une seule fois sans préservatif... Je savais qu'il y avait un risque mais j'ai cru bêtement que ça ne pourrait pas arriver... Je suis totalement perdue... Je ne fais que pleurer. Je ne veux pas de 5 ème enfant, j'ai déjà beaucoup de mal à m'en sortir avec mes 4 loulous, ils m'épuisent... ils sont adorables mais ils se chamaillent tout le temps et je me sens déjà totalement débordée alors que je ne travaille pas... Financièrement, au début je pense qu'on pourrait s'en sortir. J'ai quasiment tout gardé de mes précédentes grossesses et jallaiterai mais par la suite ?... il faudra changer la voiture aussi... Et puis, j'ai peur en gardant ce bébé de devoir priver les autres... On commençait à pouvoir re profiter un peu des sorties etc... sans être bloqué par un bébé. Ma dernière est propre, je ne me vois pas retourner dans les couches, me relever la nuit... j'étais enfin sortie de tout ça... Et je commençais à me ressentir enfin femme et pas seulement maman... Mais en même temps, je ne me vois pas avorter... mettre fin à cette petite vie, je ne suis enceinte que de 4 SA et 3 jours, je sais bien que son coeur ne bat pas encore mais d'ici que toutes les consultations soient faites il le sera sûrement... Je ne sais pas en combien de temps je pourrais avoir un rdv. Combien de temps je vais devoir subir cette souffrance morale... Si j'ai une IVG médicamenteuse, vais je beaucoup souffrir ? Est ce que je vais réussir à prendre ces cachets ? Je ne pourrais plus faire marche arrière ensuite... Est ce que je pourrais continuer à m'occuper des enfants pendant l'IVG ? Qu'est ce que je vais leur dire quand ils verront que leur maman ne fait que pleurer ? C'est tellement dur... Je n'ai pas la force d'élever ce 5 ème bébé mais je n'ai pas non plus le courage de lui dire au revoir pour toujours... Je sens déjà sa présence, j'ai énormément de symptômes et cette petite pesanteur dans le bas ventre me rappelle sans cesse qu'il est bel et bien là... Mon mari me soutient quelque soit ma décision... il ne veut pas de 5 ème enfant non plus. Il a les mêmes peurs que moi... Fatigue, confort des enfants et financièrement... mais si je décide de le garder je sais qu'il assumera et qu'il l'aimera comme les autres. C'est un très bon père... j'ai l'impression que ma tête va exploser... Je ne peux en parler à personne sauf mon mari, je ne suis pas proche de mes parents... Ma meilleure amie est anti IVG... Je sais que si je décide de mettre fin à cette grossesse, je le vivrais très mal, je ne pourrais m'empêcher d'y penser... Est ce que c'était une fille ou un garçon ? A qui aurait il ressemblé ?... Je vais sombré dans la déprime et je sais que malgré tout l'amour que mon mari me porte il ne supportera pas mon état psychologique. Je devrais faire semblant... souffrir en silence... Mais je ne peux pas avoir ce 5 ème enfant... Les 2 cas sont au dessus de mes forces... Que faire ?..." ;
+	sioc:has_creator <http://club.doctissimo.fr/pupune1512/> ;
+	sioc:name "Je suis perdue... enceinte BB5" ;
+	foaf:gender "female" ;
+	foaf:birthday "1985-08-20"^^xsd:date .
+
+<http://forum.doctissimo.fr/grossesse-bebe/ivg/perte-morceaux-lait-sujet_162603_1.htm#post_0> a sioc:Post ;
+	dcterm:created "2013-05-06"^^xsd:date ;
+	sioc:has_container <http://forum.doctissimo.fr/grossesse-bebe/ivg/perte-morceaux-lait-sujet_162603_1.htm> ;
+	sioc:content "Bonjour tout le monde. Voila j'ai subit une IVG et depuis je perd tu lait en très grande quantité. De plus j'ai aussi perdu de gros morceaux rouge foncé ( 5cm de longueur) Désolé pour les détail mais cela m'inquiette. Est ce que quelqu'un a déjà eu cela?" ;
+	sioc:has_creator <http://club.doctissimo.fr/mzel-lau/> ;
+	sioc:name "IVG perte de gros morceaux et de lait" ;
+	foaf:gender "female" ;
+	foaf:birthday "1994-04-30"^^xsd:date .
+
+<http://forum.doctissimo.fr/grossesse-bebe/ivg/maladie-grave-sujet_161190_1.htm#post_0> a sioc:Post ;
+	dcterm:created "2012-01-25"^^xsd:date ;
+	sioc:has_container <http://forum.doctissimo.fr/grossesse-bebe/ivg/maladie-grave-sujet_161190_1.htm> ;
+	sioc:content "Bonjour à toutes, Avant d'affoler la terre entière, je me demandais si certain détenait la réponse à ma question. J'ai subie un ivg par curetage aspiration ce lundi. Hier donc mardi, mis à part un mal de ventre j'étais \"presque\" en pleine forme, pas spécialement de fatigue. Mais aujourd'hui je suis hyper fatiguée, j'ai des courbatures, j'ai mal à la tête, mon mal de ventre lui c'est atténué. Bref j'ai tous les symptômes d'un début d'une maladie banale. Ceci dit comme je me suis faite opérée il y a deux jours, je me demande si ceci ne pourrait pas plutôt être le signe d'une infection contractée durant l'opération? Dois je consulter au plus vite? Ou est- ce fréquent d'avoir ce genre de symptôme après toutes opérations voir ivg? Merci pour vos réponses." ;
+	sioc:has_creator <http://club.doctissimo.fr/marie30400/> ;
+	sioc:name "Maladie après ivg? Est- ce grave?" ;
+	foaf:gender "female" ;
+	foaf:birthday "1986-08-13"^^xsd:date .
+
+<http://forum.doctissimo.fr/grossesse-bebe/ivg/medicament-domicile-sujet_161157_1.htm#post_0> a sioc:Post ;
+	dcterm:created "2012-01-17"^^xsd:date ;
+	sioc:has_container <http://forum.doctissimo.fr/grossesse-bebe/ivg/medicament-domicile-sujet_161157_1.htm> ;
+	sioc:content "bonjour, je viens de faire un test de grossesse et il s'avere positif!!!! j'a plusieurs questions, 1) dois je faire une prise de sans pour confirmer le test, 2 puis je consulter un simple medecin traitant et dois je aller voir une gynéco, 3) je veux le faire absolument chez moi et un week end est ce possible et comment cela se passe, 4) est ce que je suis dans les temps pour faire un ivg par médicament a savoir date de mes dernieres regles le 12 décembre 2012, merci de vos réponse" ;
+	sioc:has_creator <http://club.doctissimo.fr/linece1973/> ;
+	sioc:name "ivg par médicament a domicile" ;
+	foaf:gender "female" ;
+	foaf:birthday "1973-01-15"^^xsd:date .
+
+<http://forum.doctissimo.fr/grossesse-bebe/ivg/sujet_158217_1.htm#post_0> a sioc:Post ;
+	dcterm:created "2010-02-21"^^xsd:date ;
+	sioc:has_container <http://forum.doctissimo.fr/grossesse-bebe/ivg/sujet_158217_1.htm> ;
+	sioc:content "bonjour je m'apelle mélodie, j'ai 19ans , sa fait 2ans que je suis avec mon copain , je vis toujours chez ma mere en attendant de trouver un nouvel emploi.Mon copain vient souvent chez ma mere . Seulement j'ai aretté ma pillule mardi et je n'ai toujours pas mes regles , j'ai de gros sauts d'humeur mais j'ai très soif, j'ai chaud, je pue,...bref comme si mes regles arrivais mais j'ai aussi très mal au ventre et j'ai vraiment très peur d'etre enceinte car je suis trop jeune, je n'ai pas de situation stable é surtout je ne suis pas fan des enfants .en meme temps quand je stress mes regles sont en retard et j'ai pris du poids. mon dernier rapport sexuel remonte maintenant a environ 2 semaine et je voudrais savoir a partir de combien de temps de grossesse l'avortement est medicamenteux. j'ai regardé les symptomes de la grossesse mais je n'ai rien de tout sa mais ce qui me fais le plus peur c'est que ma mere a su quelle était enceinte de mon frere après 6mois de grossesse et il n'etait pa desiré ,de plus il c'etait logé le long de sa colonne vertebrale. j'ai vraiment besoine de vos avis, de vos coseils par rapport a l'avortement , l'effet que sa fait, comment sa ce passe etc...j'espere avoir des reponses...merci d'avance mélodie" ;
+	sioc:has_creator <http://club.doctissimo.fr/ether411/> ;
+	sioc:name "que faire" ;
+	foaf:gender "female" ;
+	foaf:birthday "1991-07-06"^^xsd:date .
+
+<http://forum.doctissimo.fr/grossesse-bebe/ivg/17ans-appel-aide-sujet_162778_1.htm#post_0> a sioc:Post ;
+	dcterm:created "2013-06-29"^^xsd:date ;
+	sioc:has_container <http://forum.doctissimo.fr/grossesse-bebe/ivg/17ans-appel-aide-sujet_162778_1.htm> ;
+	sioc:content "Bonjour! Déjà j'voudrais dire que je pensais vraiment pas que ça m'arriverais. J'en suis même pas sur en fait! Et j'ai le ventre noué. Mon problème c'est que je crois être enceinte. J'ai mes règles, aucun symptôme particulier d'une femme enceinte mais avec mon copain (on est ensemble depuis 7mois) on a eu pas mal de rapport a risques! J'en suis quasiment sûre! Le problème c'est que je suis au bresil pour 1mois et demi. Je pourrais jamais me faire avorter! J'suis vraiment impuissante, j'ai pas le choix! C'est super angoissant.. Faudrai que je fasse un test mais je sais pas trop a qui parler de ça.. Cette éventuelle grossesse va bouleverser tout mes projet de vie! Mes parents vont être extrêmement déçu, mon copain va très certainement me quitter et le pire de tout, je ne pourrais pas offrir a mon enfant une belle vie.. Ça va être extrêmement dur! Comment j'vais pouvoir m'en sortir! Je ne peux pas faire naître un enfant dans mon cadre de vie, je suis extrêmement immature et pas du tout responsable! Et le faire adopter sous x, c'est inanvisagable.. Mon bébé ne saura jamais qui je suis! Je suis perdue, j'ai peur, je suis seule dans ce caca.. Aidez moi!" ;
+	sioc:has_creator <http://club.doctissimo.fr/sarabemy/> ;
+	sioc:name "Un bébé a 17ans, appel a l'aide! SOS" ;
+	foaf:gender "female" ;
+	foaf:birthday "1996-02-24"^^xsd:date .
+
+<http://forum.doctissimo.fr/grossesse-bebe/ivg/chances-sois-enceinte-sujet_164035_1.htm#post_0> a sioc:Post ;
+	dcterm:created "2015-06-06"^^xsd:date ;
+	sioc:has_container <http://forum.doctissimo.fr/grossesse-bebe/ivg/chances-sois-enceinte-sujet_164035_1.htm> ;
+	sioc:content "Bonjour, J'ai 17 ans & j'ai eu un rapport à risque au alentours du 22 avril... Je suis sous pillule depuis 3 ans (Yaz) mais je me demande quand même si je ne suis pas enceinte? J'ai eu mes règles comme d'habitude peu de temps après mon rapport à risque mais en ce qui concerne les suivantes je l'ai eu moins longtemps et moins abondantes que d'habitude. Depuis, il m'est arrivé d'avoir des nausées, des douleurs au seins et de légères douleurs au bas ventre également. Y a-t-il des chances que je sois enceinte ou suis-je juste en train de psychoter?" ;
+	sioc:has_creator <http://club.doctissimo.fr/petitepanda1998/> ;
+	sioc:name "Y a-t-il des chances que je sois enceinte?" ;
+	foaf:gender "female" ;
+	foaf:birthday "1998-04-05"^^xsd:date .
+
+<http://forum.doctissimo.fr/grossesse-bebe/ivg/chirurgicale-effectuee-fevrier-sujet_158241_1.htm#post_0> a sioc:Post ;
+	dcterm:created "2010-02-26"^^xsd:date ;
+	sioc:has_container <http://forum.doctissimo.fr/grossesse-bebe/ivg/chirurgicale-effectuee-fevrier-sujet_158241_1.htm> ;
+	sioc:content "j'ai 36 ans et 2 enfants, fille et garcon de 4 a 7 ans. j'ai finalement pris la decision d'interrompre ma grossesse, a 8 sa. nous ne pouvions pas accueillir un autre bb, je suis au chomage, maison beaucoup trop petite. jai subi une ivg il y'a 2 jours, le 24 fevrier. c'est ma 3eme ivg.je sais c'est enorme enorme. la 1er ivg, c'etait il y'a 5ans, la 2eme il y'a 2ans. la 3eme, n'aurait jamais du arriver.je suis impardonnable, je le sais, mais je vais me faire poser un sterilet. tout de suite apres l'intervention, j'ai saigne comme des regles , quelques heures, le jour suivant rien, et aujourd'hui aussi pas de saignement,  (enfin la journee vient de commencer.) est-ce que c'est normal?? je voulais vous dire que moralement ca va, pas de remords, nous avons pris la bonne decision,   je vais essayer de ne pas trop y penser, je vais m'occuper, essayer de trouver un boulot, m'occuper encore plus de mes enfants que j'adore....." ;
+	sioc:has_creator <http://club.doctissimo.fr/yaniv/> ;
+	sioc:name "ivg chirurgicale effectuee le 24 fevrier" ;
+	foaf:gender "male" ;
+	foaf:birthday "1984-08-10"^^xsd:date .
+
+<http://forum.doctissimo.fr/grossesse-bebe/ivg/ivg-ratee-sequelles-sujet_162307_1.htm#post_0> a sioc:Post ;
+	dcterm:created "2013-01-17"^^xsd:date ;
+	sioc:has_container <http://forum.doctissimo.fr/grossesse-bebe/ivg/ivg-ratee-sequelles-sujet_162307_1.htm> ;
+	sioc:content "Bonjour à toutes, tous. J'écris ce post parce que je suis face à une situation difficile et j'ai besoin d'aide. Voilà, j'ai subie une IVG le 10 décembre, par voie médicamenteuse. J'étais enceinte d'un mois.Pas de jugement hâtif s'il vous plait, lui et moi nous nous protégions pendant les rapports mais je ne peux pas prendre la pilule car j'ai un passé médical lourd et les traitements hormonaux sont trop lourd pour moi. Enfin bref, le fait est que j'étais enceinte et célibataire, donc pas de possibilité de garder le bébé. De plus, le père était farouchement contre cette idée. Nous étions tous les deux en période d'éxamens, alors j'ai choisie l'avortement médicamenteux pour que se soit plus rapide car le \"père\" était vraiment mal. Ma gynéco connaissant mon passé me l'avait fortement déconseillé et nous a fait signé une décharge de responsabilité au cas où l'avortement entrainerait des complications sur ma santé. Bref, la première pilule prise, je l'assimile mais le lendemain je vomis énormément et me tord de douleur. Déterminée je n'arrête pas et prend la deuxième pilule. Les saignements commencent et j'ai l'impression d'avoir évacué l'oeuf... J'ai énormément de saignements, ce qui inquiète mon médecin et ma gynéco... Mais au final tout se remet en place plus ou moins bien. Puis viens l'écho de contrôle. La gynéco dit qu'elle est anormale car elle arrive pas à discerner correctement si l'oeuf est bien parti ou non. Maintenant elle me dit d'attendre un peu mes règles et de voir si tout se passe bien. Seulement, voilà on est le 17 et je n'ai toujours rien... Les nausées ont plus ou moins continuées, et j'ai souvent très souvent mal au niveau du ventre. Les symptômes de la grossesse sont toujours là et j'ai peur que l'IVG est raté... Est-ce possible? Que faire ensuite? Je suis seule face à cette situtation et j'ai besoin d'aide et de conseils. Merci" ;
+	sioc:has_creator <http://club.doctissimo.fr/r0cketgirl/> ;
+	sioc:name "IVG ratée? Quelles séquelles?" ;
+	foaf:gender "female" ;
+	foaf:birthday "1993-05-25"^^xsd:date .
+
+<http://forum.doctissimo.fr/grossesse-bebe/ivg/saignement-medicamenteuse-5janvier-sujet_161166_1.htm#post_0> a sioc:Post ;
+	dcterm:created "2012-01-20"^^xsd:date ;
+	sioc:has_container <http://forum.doctissimo.fr/grossesse-bebe/ivg/saignement-medicamenteuse-5janvier-sujet_161166_1.htm> ;
+	sioc:content "Bonjour, Je reviens faire un petit tour sur le forum, 15 jours après l'ivg. Mes saignements c'était arreté 4-5 jours (vendredi dernier) et c'est reparti depuis mardi, j'ai ma visite de contrôle lundi. J'aurais aimé savoir si cela était normal, j'ai pris la pillule cerazette le 7 janvier suite à la prescription du médecin est-ce du à ca ? Merci d'avance pour vos réponses, et je vous souhaite à toutes bon courage dans ces moments pas toujours faciles à vivre." ;
+	sioc:has_creator <http://club.doctissimo.fr/femmedumonde/> ;
+	sioc:name "Retour de saignement / Ivg médicamenteuse le 5janvier" ;
+	foaf:gender "female" ;
+	foaf:birthday "1979-10-11"^^xsd:date .
