@@ -23,7 +23,7 @@ Ndocs <- 1046480
 
 
 ## drugs labels : 
-romedi <- read.table("romediTermsNormalizedINPINBN.csv",sep="\t",header = F,comment.char = "",quote="")
+romedi <- read.table("romediTermsNormalizedINPINBN.csv",sep="\t",header = F,comment.char = "",quote="", encoding = "UTF-8")
 colnames(romedi) <- c("uri","type","libelle","normal")
 romedi$uri <- gsub("http://www.romedi.fr/romedi#","",romedi$uri)
 
@@ -40,7 +40,7 @@ diseaseCount <- unique(diseaseCount)
 
 ########### disease labels
 ### as a code can have multiple labels, we take the more frequent label in the data :
-diseaseDetected <- read.table("diseasesDetected.csv",sep="\t",comment.char = "")
+diseaseDetected <- read.table("diseasesDetected.csv",sep="\t",comment.char = "", encoding = "UTF-8")
 colnames(diseaseDetected) <- c("candidateTerm","code")
 diseaseDetectedDistinct <- unique(diseaseDetected)
 ## one label per code: 
@@ -56,5 +56,5 @@ diseasesByDrug <- getDiseasesByDrug(drugURI = drugURI,drugsCount = drugsCount, d
                                     host = host,port = port,index = index, type = type)
 
 #############  Comparison with a list of ICD10 indications by Theriaque 
-indications  <- read.table("theriaque_indication_cim10.csv",sep=",")
+indications  <- read.table("theriaque_indication_cim10.csv",sep=",", encoding = "UTF-8")
 colnames(indications) <- c("denom","indication","code","indicationLong")
