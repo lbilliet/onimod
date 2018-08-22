@@ -26,11 +26,11 @@ sum(bool)
 signal2 <- subset(signal, bool)
 
 ###### see to associated disease : 
-diseasesByDrug <- NULL ## retirer
+rm(diseasesByDrug)## retirer
 
 ######## pick a label : 
 # => Theralene est indique dans les épisodes d'insomnies !
-results <- getURIbyLabel("provames",romedi)
+results <- getURIbyLabel("albumine",romedi)
 diseaseByDrug <- results$diseaseByDrug
 drugURIs <- results$drugURI
 # drugURI
@@ -47,7 +47,7 @@ while (is.null(posts) & i < (length(drugURIs) + 1)){
                              port = port,index = index,type = type)
   i <- i + 1
 }
-posts$sentence[1:10]
+posts$sentence[1:15]
 
 ### all the terms of a code : 
 voir <- subset(diseaseDetectedDistinct, code == "Z922")
