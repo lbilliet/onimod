@@ -1,8 +1,7 @@
 rm(list=ls())
-# source("CleanWd.R")
-# wd()
-# setwd(dirname(file.choose()))
+setwd(dirname(file.choose()))
 getwd()
+library(stringr)
 source("0.chargement.R")
 source("usefulFunctions.R")
 load("indicationFoundbyDrugURI.rdata")
@@ -25,9 +24,13 @@ sum(bool)
 signal2 <- subset(signal, bool)
 
 ###### see to associated disease : 
-# rm(diseasesByDrug)## retirer
 
 ######## pick a label : 
+
+#test rch ATU / RTU
+# AtuRtu <- read.table("data/ATU_RTU.csv",sep="\t",header = F,comment.char = "",quote="", encoding = "UTF-8")
+# res <- sapply(as.character(unlist(AtuRtu)), grep)
+
 # => Theralene est indique dans les épisodes d'insomnies !
 getPostsMedoc <- function(medoc){
   results <- getURIbyLabel(medoc,romedi)
@@ -40,16 +43,18 @@ getPostsMedoc <- function(medoc){
   i <- 1
   posts <- NULL
   while (is.null(posts) & i < (length(drugURIs) + 1)){
-    print(i)
+    # print(paste("Valeur de i (pour drugURI):",i, sep = " "))
     drugURI <- drugURIs[i]
     posts <- getDrugAndDisease(drugURI, code,host = host,
                                port = port,index = index,type = type)
     i <- i + 1
   }
   print(diseaseByDrug$candidateTerm[1:10])
+  bool_ATU<-unique(str_detect(as.character(unlist(AtuRtu)), paste("",medoc,"")))
+  print(paste("ATU/RTU ?", bool_ATU, sep=" "))
   posts$sentence
 }
-getPostsMedoc("cytotec")
+getPostsMedoc("thym")
 
 # Encoding(posts$sentence) <- "UTF-8"
 # iconv(posts$sentence, "UTF-8", "ISO-8859-1")

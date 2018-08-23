@@ -58,3 +58,6 @@ diseasesByDrug <- getDiseasesByDrug(drugURI = drugURI,drugsCount = drugsCount, d
 #############  Comparison with a list of ICD10 indications by Theriaque 
 indications  <- read.table("theriaque_indication_cim10.csv",sep=",", encoding = "UTF-8")
 colnames(indications) <- c("denom","indication","code","indicationLong")
+
+############ load df infos ATU/RTU
+AtuRtu <- read.table("data/ATU_RTU.csv",sep="\t",header = F,comment.char = "",quote="", encoding = "UTF-8")
