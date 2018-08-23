@@ -60,4 +60,5 @@ indications  <- read.table("theriaque_indication_cim10.csv",sep=",", encoding = 
 colnames(indications) <- c("denom","indication","code","indicationLong")
 
 ############ load df infos ATU/RTU
-AtuRtu <- read.table("data/ATU_RTU.csv",sep="\t",header = F,comment.char = "",quote="", encoding = "UTF-8")
+# AtuRtu <- read.table("data/ATU_RTU.csv",sep=";",header = F,comment.char = "",quote="", encoding = "UTF-8")
+AtuRtu <- read.csv("data/ATU_RTU.csv",header = F,encoding = "UTF-8")

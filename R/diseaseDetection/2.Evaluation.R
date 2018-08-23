@@ -28,17 +28,16 @@ signal2 <- subset(signal, bool)
 ######## pick a label : 
 
 #test rch ATU / RTU
-# AtuRtu <- read.table("data/ATU_RTU.csv",sep="\t",header = F,comment.char = "",quote="", encoding = "UTF-8")
-# res <- sapply(as.character(unlist(AtuRtu)), grep)
+AtuRtu <- read.csv2("data/ATU_RTU.csv",header = T,encoding = "UTF-8") #si besoin de load, mais normalement dans source "0.chargement.R"
 
 # => Theralene est indique dans les épisodes d'insomnies !
-getPostsMedoc <- function(medoc){
+getPostsMedoc <- function(medoc, numCode = 1){
   results <- getURIbyLabel(medoc,romedi)
   diseaseByDrug <- results$diseaseByDrug
   drugURIs <- results$drugURI
   # drugURI
   diseaseByDrug$candidateTerm[1:14]
-  code <- diseaseByDrug$code[1] ## 4 => numero du terme
+  code <- diseaseByDrug$code[numCode] ## 4 => numero du terme
   code
   i <- 1
   posts <- NULL
@@ -50,17 +49,20 @@ getPostsMedoc <- function(medoc){
     i <- i + 1
   }
   print(diseaseByDrug$candidateTerm[1:10])
-  bool_ATU<-unique(str_detect(as.character(unlist(AtuRtu)), paste("",medoc,"")))
+  bool_ATU<-unique(str_detect(as.character(unlist(AtuRtu)), fixed(paste("\"",medoc,"\""), ignore_case = TRUE )))
   print(paste("ATU/RTU ?", bool_ATU, sep=" "))
   posts$sentence
 }
-getPostsMedoc("thym")
+getPostsMedoc("oromone", numCode = 1)
 
-# Encoding(posts$sentence) <- "UTF-8"
-# iconv(posts$sentence, "UTF-8", "ISO-8859-1")
-# iconvlist()
+# medoc<-"alpelisib"
+# unlistAtuRtu <-  unlist(AtuRtu)
+# any(grepl(medoc,unlistAtuRtu,ignore.case = T))
+# 
+# unique(str_detect(as.character(unlist(AtuRtu)), fixed(paste("\"",medoc,"\"", sep = ""), ignore_case = TRUE )))
+# unique(str_detect(as.character(unlist(AtuRtu)), fixed("alpelisib", ignore_case = TRUE )))#ALPELISIB
+# ignore.case(medoc)
 
 ### all the terms of a code : 
 voir <- subset(diseaseDetectedDistinct, code == "E87")
 voir[1:20,]
-# xlsx::write.xlsx(signal2,file="signal2.xlsx", sheetName = "signal2")

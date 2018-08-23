@@ -13,6 +13,7 @@ voir <- unique(voir)
 code <- unique(voir$code)
 voir <- getDrugAndDisease(drugURI, code,host = host,port = port,index = index,type = type)
 
+# getDrugByDisease(code, drugsCount,diseaseCount,romedi,host = host,port = port,index = index,type = type)
 
 #############################
 getIndication("gaviscon")
