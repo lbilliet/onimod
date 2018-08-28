@@ -53,7 +53,7 @@ getPostsMedoc <- function(medoc, numCode = 1){
   print(paste("ATU/RTU ?", bool_ATU, sep=" "))
   posts$sentence
 }
-getPostsMedoc("oromone", numCode = 1)
+getPostsMedoc("clonazepam", numCode = 1 )
 
 # medoc<-"alpelisib"
 # unlistAtuRtu <-  unlist(AtuRtu)
@@ -64,5 +64,5 @@ getPostsMedoc("oromone", numCode = 1)
 # ignore.case(medoc)
 
 ### all the terms of a code : 
-voir <- subset(diseaseDetectedDistinct, code == "E87")
+voir <- subset(diseaseDetectedDistinct, code == "M701")
 voir[1:20,]
