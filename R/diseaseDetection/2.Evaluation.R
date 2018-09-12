@@ -1,6 +1,7 @@
 rm(list=ls())
 setwd(dirname(file.choose()))
 getwd()
+library(xtable)
 library(stringr)
 source("0.chargement.R")
 source("usefulFunctions.R")
@@ -24,11 +25,30 @@ sum(bool)
 signal2 <- subset(signal, bool)
 
 ###### see to associated disease : 
-
+log(3503)
 ######## pick a label : 
 
 #test rch ATU / RTU
 AtuRtu <- read.csv2("data/ATU_RTU.csv",header = T,encoding = "UTF-8") #si besoin de load, mais normalement dans source "0.chargement.R"
+
+##############export DF LaTEX
+# diseasesByDrugOrd<-diseasesByDrug[with(diseasesByDrug, order(diseasesByDrug$TFIDF)),]
+diseasesByDrugOrd<-diseasesByDrug[,c(1,8,7,2,3,4,5,6)]
+# diseasesByDrugOrd<-diseasesByDrugOrd[with(diseasesByDrugOrd, order(diseasesByDrugOrd$TFIDF)),]
+print(xtable(diseaseCount[1:15,]), include.rownames=FALSE)
+print(xtable(diseaseDetected[1:15,]), include.rownames=FALSE)
+print(xtable(diseaseDetectedDistinct[1:15,]), include.rownames=FALSE)
+print(xtable(diseaseByDrug[1:15,c(1,8,7,4,6)]), include.rownames=FALSE)
+print(xtable(diseasesByDrug[1:15,c(1,8,7,4,6)]), include.rownames=FALSE)
+print(xtable(diseasesByDrugOrd[1:15,]), include.rownames=FALSE)
+print(xtable(drugsCount[1:15,]), include.rownames=FALSE)
+print(xtable(drugsCount30[1:15,]), include.rownames=FALSE)
+print(xtable(indicationFoundbyDrugURI[1:15,]), include.rownames=FALSE)
+print(xtable(romedi[1:15,]), include.rownames=FALSE)
+print(xtable(signal[1:15,]), include.rownames=FALSE)
+print(xtable(signal2[1:15,]), include.rownames=FALSE)
+
+print(xtable(indications[c(11,12,17,18,19,20,21,22),c(1,3,4)]), include.rownames=FALSE)
 
 # => Theralene est indique dans les épisodes d'insomnies !
 getPostsMedoc <- function(medoc, numCode = 1){
@@ -53,7 +73,7 @@ getPostsMedoc <- function(medoc, numCode = 1){
   print(paste("ATU/RTU ?", bool_ATU, sep=" "))
   posts$sentence
 }
-getPostsMedoc("clonazepam", numCode = 1 )
+getPostsMedoc("rivotril", numCode = 1 )
 
 # medoc<-"alpelisib"
 # unlistAtuRtu <-  unlist(AtuRtu)

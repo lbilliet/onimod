@@ -32,6 +32,7 @@ getCTCount = function(host, port, index, type){
 }
 
 
+
 #' @description count the drugs (romedi URI) indexed in ElasticSearch. Return a romedi URI with its frequency
 getDrugsCount = function(host, port, index, type){
   body <- 

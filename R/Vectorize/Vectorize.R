@@ -1,3 +1,4 @@
+rm(list=ls())
 library(elastic)
 library(httr)
 library(quanteda)
@@ -19,11 +20,15 @@ Ndocs <- 1046480
 
 ######################## lemmaTerm (candidateTerm CT)
 ctCount <- getCTCount(host = host, port = port, index = index, type = type)
-min(ctCount$frequency)
+summary(ctCount)
 ## remove less than 2 char : 
 nchars <- nchar(ctCount$ct)
+head(nchars)
 bool <- nchars < 3
-sum(bool)
+head(bool)
+str(bool)
+table(bool)
+sum(bool)#donne nb TRUE
 ctCount <- subset (ctCount, !bool)
 ctCount$IDF <- - log (ctCount$frequency / Ndocs)
 
