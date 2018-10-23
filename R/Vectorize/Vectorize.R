@@ -1,10 +1,14 @@
 rm(list=ls())
+setwd(dirname(file.choose()))
 library(elastic)
 library(httr)
 library(quanteda)
 library(dplyr)
 library(tidytext)
-source("../diseaseDetection/elasticSearchFunction.R")
+source("elasticSearchFunction.R")
+source(file = "../diseaseDetection/0.chargement.R")
+source("usefulFunctions.R")
+load("indicationFoundbyDrugURI.rdata")
 
 ###### Connection to elasticSearch
 elastic::connect(es_host = "172.16.90.22")
@@ -38,12 +42,14 @@ drugsCount$IDF <- - log (drugsCount$frequency / Ndocs)
 
 ############################### disease count : 
 diseaseCountCode3 <- getDiseasesCount(host = host, port = port, index = index, type = type)
-diseaseCountCode3$code <- substr(x = diseaseCountCode3$code, 1,3)
-diseaseCountCode3 <- diseaseCountCode3 %>% group_by(code) %>% mutate (frequencyCode = sum(frequencyCode))
+diseaseCountCode3$code <- substr(x = diseaseCountCode3$code, 1,3) #une lettre et 2 chiffres, pas plus
+diseaseCountCode3 <- diseaseCountCode3 %>% group_by(code) %>% mutate (frequencyCode = sum(frequencyCode)) #regroupement des codes raccourcis avec sommes des effectifs
 diseaseCountCode3$IDF <- - log (diseaseCountCode3$frequencyCode / Ndocs)
 diseaseCountCode3 <- unique(diseaseCountCode3)
-bool <- diseaseCountCode3$frequencyCode < 50
+summary(diseaseCountCode3)
+bool <- diseaseCountCode3$frequencyCode < 5 #initialement fixée à 50 par Sébastien
 diseaseCountCode3 <- subset (diseaseCountCode3, !bool)
+summary(diseaseCountCode3)
 
 ########### disease labels
 ### as a code can have multiple labels, we take the more frequent label in the data :
@@ -64,18 +70,22 @@ romedi <- read.table("../diseaseDetection/romediTermsNormalizedINPINBN.csv",sep=
 colnames(romedi) <- c("uri","type","libelle","normal")
 romedi$uri <- gsub("http://www.romedi.fr/romedi#","",romedi$uri)
 dfDrug <- NULL
-bool <- drugsCount$frequency < 30
+bool <- drugsCount$frequency < 5 #initialement fixée à 30 par Sébastien
 sum(bool)
 drugsCount <- subset (drugsCount, !bool)
 drugURI <- drugsCount$uri[1]
-source("../diseaseDetection/usefulFunctions.R")
+source("usefulFunctions.R")
 ## remove drug term in ct : 
 # bool <- ctCount$ct %in% romedi$normal
 # sum(bool)
 # ctCount <- subset (ctCount, !bool)
 
-drugURIrivotril  <- getURIbyLabel2("rivotril",romedi)
-drugURI <- drugURIrivotril
+# drugURIrivotril  <- getURIbyLabel2("rivotril",romedi)
+# drugURI <- drugURIrivotril
+
+# drugXURI  <- getURIbyLabel("rivotril",romedi) #original
+drugXURI  <- getURIbyLabel("doxylamine",romedi)
+drugURI <- drugXURI
 
 getLabelByURI <- function(uri, romedi){
   bool <- romedi$uri == uri
@@ -91,12 +101,12 @@ for (drugURI in drugsCount$uri){
   print(drugURI)
   print(which(drugsCount$uri == drugURI))
   label <- getLabelByURI(drugURI,romedi)
-  if (drugURI == drugURIrivotril){
+  if (drugURI == drugXURI){
     temp <- getCTByDrug(drugURI = drugURI,
                         drugsCount = drugsCount, ctCount = ctCount, romedi = romedi, host = host,port = port,
                         index = index,type = type)
   } else {
-    temp <- getCTByDrugExcept(drugURI = drugURI,drugURIexcept = drugURIrivotril,
+    temp <- getCTByDrugExcept(drugURI = drugURI,drugURIexcept = drugXURI,
                               drugsCount = drugsCount, ctCount = ctCount, romedi = romedi, host = host,port = port,
                               index = index,type = type)
   }
@@ -151,10 +161,10 @@ for (code3 in diseaseCountCode3$code){
     cat("disease not detected for code ", code3, "\n")
     next
   }
-  # temp <- getCTByDiseaseExcept(drugURI = drugURI, drugURIexcept = drugURIrivotril,
+  # temp <- getCTByDiseaseExcept(drugURI = drugURI, drugURIexcept = drugXURI,
   #                           drugsCount = drugsCount, ctCount = ctCount, romedi = romedi, host = host,port = port,
   #                           index = index,type = type)
-  temp <- getCTByDiseaseExcept(code3 = code3, codes = codes, drugURIexcept = drugURIrivotril, diseaseCountCode3 = diseaseCountCode3, ctCount,diseaseDetected = diseaseDetected,
+  temp <- getCTByDiseaseExcept(code3 = code3, codes = codes, drugURIexcept = drugXURI, diseaseCountCode3 = diseaseCountCode3, ctCount,diseaseDetected = diseaseDetected,
                           host = host,port = port,index = index,type = type)
   if (nrow(temp) == 0){
     next
@@ -218,12 +228,12 @@ getDrugsURI = function(codeATC){
 for (codeATC in tab$ATC){
   drugsURI <- getDrugsURI(codeATC = codeATC)
   print(which(codeATC == tab$ATC))
-  bool <- drugsURI == drugURIrivotril
+  bool <- drugsURI == drugXURI
   if (any(bool)){
     print("oui !")
     drugsURI <- drugsURI[!bool]
   } 
-  temp <- getCTByDrugExcept(drugURI = drugsURI,drugURIexcept = drugURIrivotril,drugsCount = drugsCount, ctCount = ctCount, romedi = romedi, host = host,port = port,
+  temp <- getCTByDrugExcept(drugURI = drugsURI,drugURIexcept = drugXURI,drugsCount = drugsCount, ctCount = ctCount, romedi = romedi, host = host,port = port,
                       index = index,type = type)
   if (nrow(temp) == 0){
     next

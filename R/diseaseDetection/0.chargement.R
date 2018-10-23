@@ -1,4 +1,6 @@
 # install.packages("jsonlite")
+# install.packages("udpipe")
+library(udpipe)
 library(elastic)
 library(httr)
 library(quanteda)
@@ -24,18 +26,23 @@ Ndocs <- 1046480
 
 ## drugs labels : 
 romedi <- read.table("romediTermsNormalizedINPINBN.csv",sep="\t",header = F,comment.char = "",quote="", encoding = "UTF-8")
-colnames(romedi) <- c("uri","type","libelle","normal")
+colnames(romedi) <- c("uri","type","libelle","normalized")
 romedi$uri <- gsub("http://www.romedi.fr/romedi#","",romedi$uri)
 
 #### drugs count : 
 drugsCount <- getDrugsCount(host = host, port = port, index = index, type = type)
+# initialement => IDF utilisé, voire perf avec weight BM25 Okapi
 drugsCount$IDF <- - log (drugsCount$frequency / Ndocs)
+# drugsCount$IDF25 <- - log (drugsCount$frequency / Ndocs)
+# drugsCount$BM25 <- 
 
 ### disease count : 
 diseaseCount <- getDiseasesCount(host = host, port = port, index = index, type = type)
 ## keep only ICD10 with 3 codes
 diseaseCount <- diseaseCount %>% group_by(code) %>% mutate (frequencyCode = sum(frequencyCode))
+# initialement => IDF utilisé, voire perf avec weight BM25 Okapi
 diseaseCount$IDF <- - log (diseaseCount$frequencyCode / Ndocs)
+# diseaseCount$IDF25 <- - log (diseaseCount$frequencyCode / Ndocs)
 diseaseCount <- unique(diseaseCount)
 
 ########### disease labels

@@ -1,6 +1,6 @@
 ## Get the URI of a romedi drug by its label
 getURIbyLabel = function(label, romedi){
-  bool <- romedi$normal == tolower(label)
+  bool <- romedi$normalized == tolower(label)
   drugURI <- romedi$uri[bool]
   print(getIndication(label))
   diseaseByDrug <- getDiseasesByDrug(drugURI = drugURI,drugsCount = drugsCount, diseaseCount = diseaseCount, diseaseDetected = diseaseDetected,
@@ -11,9 +11,9 @@ getURIbyLabel = function(label, romedi){
 ## Get Theriaque Indication a drug URI
 getIndicationByURI = function(drugURI){
   bool <- romedi$uri == drugURI
-  normal <- romedi$normal[bool]
-  normal <- normal[1]
-  return(getIndication(normal))
+  normalized <- romedi$normalized[bool]
+  normalized <- normalized[1]
+  return(getIndication(normalized))
 }
 
 ## get ICD10 indications of a brand Name

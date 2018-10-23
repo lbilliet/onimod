@@ -24,13 +24,13 @@ getIndication("gaviscon")
 ## adding the label to drug count : 
 drugsCount2 <- merge (drugsCount, romedi, by="uri")
 drugsCount2 <- drugsCount2[order(-drugsCount2$frequency),]
-label <- as.character(drugsCount2$normal[2])
+label <- as.character(drugsCount2$normalized[2])
 row <- which(drugURI == drugsCount2$uri)
 indicationFoundbyDrugURI <- NULL
 row <- 2083
 for (row in 1:nrow(drugsCount2)){
   print(row)
-  label <- drugsCount2$normal[row]
+  label <- drugsCount2$normalized[row]
   # print(label)
   drugURI <- drugsCount2$uri[row]
   indic <- getIndication(as.character(label))

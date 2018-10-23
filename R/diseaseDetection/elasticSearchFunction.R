@@ -121,6 +121,48 @@ getDiseasesByDrug = function(drugURI, drugsCount, diseaseCount, diseaseDetected,
   return(drugsDisease)
 }
 
+####compléter pour normalisation BM25
+getDiseasesByDrugBM25 = function(drugURI, drugsCount, diseaseCount, diseaseDetected, host, port, index, type){
+   drugURIreq <- paste0("\"",drugURI,"\"")
+   drugURIreq <- paste0(drugURIreq, collapse=",")
+   body <- paste0(
+      '
+      {
+        "query":{
+            "terms":{
+              "codeDrug":[',drugURIreq,']
+                  }
+                },
+        "aggs": {
+          "uri": {
+            "terms": {
+            "field": "codeDisease",
+            "size": 100000
+                    }
+                }
+              }
+      }
+  ')
+   # cat(body)
+   resultsJson <- sendESquery(host, port, index, type, body)
+   drugsDisease <- resultsJson$aggregations$uri$buckets
+   colnames(drugsDisease) <- c("code","frequencyCodeDrug")
+   ## adding frequency of the drugURI to have the code frequency for this drug (TF : ) in this context
+   bool <- drugsCount$uri %in% drugURI
+   freqURI <- sum(drugsCount$frequency[bool])
+   drugsDisease$frequencyDrug <- freqURI
+   drugsDisease$TF <- drugsDisease$frequencyCodeDrug / drugsDisease$frequencyDrug
+   
+   ### adding the IDF of the ICD10 code : 
+   drugsDisease <- merge (drugsDisease, diseaseCount, by="code")
+   drugsDisease$TFIDF <- drugsDisease$TF * drugsDisease$IDF
+   
+   ### adding the label of the drug : 
+   drugsDisease <- merge (drugsDisease, diseaseDetected, by="code")
+   drugsDisease <- drugsDisease[order(-drugsDisease$TFIDF),]
+   return(drugsDisease)
+}
+
 #' @description Given a drug, retrieve the most frequent (TF) and specific (IDF) lemmaTerm associated
 #' @param drugURI : a romedi URI
 #' @param drugsCount : getDrugsCount()
