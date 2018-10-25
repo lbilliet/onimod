@@ -1,5 +1,6 @@
 # install.packages("jsonlite")
 # install.packages("udpipe")
+setwd(dirname(file.choose()))
 library(udpipe)
 library(elastic)
 library(httr)

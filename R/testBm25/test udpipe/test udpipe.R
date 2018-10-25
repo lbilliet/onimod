@@ -22,6 +22,7 @@ str(udmodelDL$model)
 x <-
    udpipe_annotate(udmodelDL, x = "Je suis en train de tester le package udpipe sur mon ordinateur : si cela fonctionne je serai de bonne humeur. Je teste ma suite de fonction pour la répétition.")
 str(x)
+View(x)
 #conversion de l'annotation en une DF lisible / exploitable
 x <- as.data.frame(x, detailed = TRUE)
 str(x)
